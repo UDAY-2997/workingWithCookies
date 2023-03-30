@@ -6,3 +6,14 @@
   width: min(100% - 30px, 1080px);
   margin-inline: auto;
 }
+
+main {
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+#box-main {
+  width: 600px;
+}
