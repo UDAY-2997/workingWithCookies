@@ -15,8 +15,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
-
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed="">
@@ -27,6 +25,26 @@
         dolores, deleniti nulla eum odit temporibus quos qui enim esse libero
         iste explicabo placeat veritatis natus in rerum alias minima tempore?
       </h2>
+      <!-- First modal -->
+      <dialog id="modal" class="modal">
+        <h2>Cookies</h2>
+        <p>We use cookies to improve your experience on our website. By clicking "Accept",
+          you agree to the use of cookies for marketing analytics purposes.</p>
+        <div>
+          <button class="accept-all">Accept</button>
+          <button class="settings">Settings</button>
+        </div>
+      </dialog>
+
+      <!-- Second modal -->
+      <dialog id="second-modal" class="second-modal">
+        <h2>settings</h2>
+        <label><input type="checkbox" name="analytics" checked>Browser</label>
+        <label><input type="checkbox" name="personalization" checked>Operating systmes</label>
+        <label><input type="checkbox" name="personalization" checked>Screen width</label>
+        <label><input type="checkbox" name="personalization" checked>Screen height</label>
+        <button class="save">Save preferences</button>
+      </dialog>
     </section>
   </main>
 
