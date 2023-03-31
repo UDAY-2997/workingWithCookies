@@ -138,6 +138,21 @@ document.querySelector(".save").addEventListener("click", function () {
   secondModal.close();
 });
 
+// Function to delete a cookie
+function deleteCookie(name) {
+  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+// set the cookie with a 15 second expiration time
+setCookie("myCookie", "myValue", 15);
+
+// Function to check if a cookie exists
+function checkCookie(name) {
+  return document.cookie
+    .split(";")
+    .some((item) => item.trim().startsWith(name + "="));
+}
+
 // Function to get the browser name
 function getBrowserName() {
   const userAgent = navigator.userAgent;
@@ -154,6 +169,8 @@ function getBrowserName() {
     browserName = "Chrome";
   } else if (userAgent.indexOf("Safari") > -1) {
     browserName = "Safari";
+  } else if (userAgent.indexOf("Brave") > -1) {
+    browserName = "Brave";
   } else {
     browserName = "Unknown";
   }
