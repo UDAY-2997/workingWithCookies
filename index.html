@@ -18,34 +18,73 @@
 </head>
 
 <body data-new-gr-c-s-check-loaded="14.1101.0" data-gr-ext-installed="">
-  <main>
+  <main class="container">
     <section id="box-main">
       <h2>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
         dolores, deleniti nulla eum odit temporibus quos qui enim esse libero
         iste explicabo placeat veritatis natus in rerum alias minima tempore?
       </h2>
-      <!-- First modal -->
-      <dialog id="modal" class="modal">
-        <h2>Cookies</h2>
-        <p>We use cookies to improve your experience on our website. By clicking "Accept",
-          you agree to the use of cookies for marketing analytics purposes.</p>
-        <div>
-          <button class="accept-all">Accept</button>
-          <button class="settings">Settings</button>
-        </div>
-      </dialog>
-
-      <!-- Second modal -->
-      <dialog id="second-modal" class="second-modal">
-        <h2>settings</h2>
-        <label><input type="checkbox" name="analytics" checked>Browser</label>
-        <label><input type="checkbox" name="personalization" checked>Operating systmes</label>
-        <label><input type="checkbox" name="personalization" checked>Screen width</label>
-        <label><input type="checkbox" name="personalization" checked>Screen height</label>
-        <button class="save">Save preferences</button>
-      </dialog>
     </section>
+    <!-- First modal -->
+    <dialog id="modal" class="modal">
+      <h2>Cookies</h2>
+      <p>We use cookies to improve your experience on our website. By clicking "Accept",
+        you agree to the use of cookies for marketing analytics purposes.</p>
+      <div class="btn-1">
+        <button id="accept-all">Accept</button>
+        <button id="settings">Settings</button>
+      </div>
+    </dialog>
+
+    <!-- Second modal -->
+    <dialog id="second-modal" class="second-modal">
+      <h2>settings</h2>
+      <div class="btn-2">
+        <div class="toggle">
+          <p>
+            Browser
+          </p>
+          <label class="switch" for="browser-checkbox">
+            <input type="checkbox" name="browser" id="browser-checkbox" checked>
+            <span class="slider"></span>
+          </label>
+
+        </div>
+
+        <div class="toggle">
+          <p>
+            Operating system
+          </p>
+          <label class="switch" for="os-checkbox">
+            <input type="checkbox" name="os" id="os-checkbox" checked>
+            <span class="slider"></span>
+          </label>
+
+
+        </div>
+
+        <div class="toggle">
+          <p>Screen width</p>
+          <label class="switch" for="sWidth-checkbox">
+            <input type="checkbox" name="sWidth" id="sWidth-checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle">
+          <p>Screen height</p>
+          <label class="switch" for="sHeight-checkbox">
+            <input type="checkbox" name="sHeight" id="sHeight-checkbox" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="center">
+        <button class="save">Save preferences</button>
+      </div>
+    </dialog>
   </main>
 
 </body>
