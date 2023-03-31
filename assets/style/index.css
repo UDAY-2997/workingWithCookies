@@ -137,8 +137,8 @@ div p {
 
 .switch {
   display: inline-block;
-  width: 45px; /*=w*/
-  height: 15px; /*=h*/
+  width: 45px;
+  height: 15px;
   margin: 4px;
   transform: translateY(50%);
   position: relative;
@@ -165,12 +165,12 @@ div p {
   height: 100%;
   background-color: #777;
   border-radius: 30px;
-  transform: translateX(-30px); /*translateX(-(w-h))*/
+  transform: translateX(-30px);
   transition: 0.2s;
 }
 
 input:checked + .slider:before {
-  transform: translateX(30px); /*translateX(w-h)*/
+  transform: translateX(30px);
   background-color: limeGreen;
 }
 
