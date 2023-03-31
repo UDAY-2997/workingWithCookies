@@ -139,3 +139,7 @@ input:checked + .slider {
   display: flex;
   justify-content: center;
 }
+
+.purple {
+  color: #833cff;
+}

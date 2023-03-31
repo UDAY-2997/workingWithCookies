@@ -17,6 +17,54 @@ if (!document.cookie) {
   }, 1000);
 }
 
+// Function to set a cookie
+function setCookie(name, value, seconds) {
+  let expires = "";
+  if (seconds) {
+    const date = new Date();
+    date.setTime(date.getTime() + seconds * 1000);
+    expires = "; expires=" + date.toUTCString();
+  } else {
+    expires = "";
+  }
+  document.cookie =
+    name + "=" + encodeURIComponent(value) + expires + "; path=/";
+}
+
+// set the cookie with a 15-20 second expiration time
+setCookie("myCookie", "myValue", 15);
+
+function clearConsole() {
+  console.clear();
+}
+
+setTimeout(function () {
+  clearConsole();
+}, 15000);
+
+// Function to get a cookie
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") {
+      c = c.substring(1, c.length);
+    }
+    if (c.indexOf(nameEQ) == 0) {
+      return decodeURIComponent(c.substring(nameEQ.length, c.length));
+    }
+  }
+  return null;
+}
+
+document.querySelector("#settings").addEventListener("click", function () {
+  // Close the first modal
+  modal.close();
+  // Show the second modal
+  secondModal.showModal();
+});
+
 // Add event listeners to the buttons
 document.querySelector("#accept-all").addEventListener("click", function () {
   // Set cookies for all options
@@ -26,20 +74,21 @@ document.querySelector("#accept-all").addEventListener("click", function () {
   setCookie("sHeight", true);
 
   // Display OS and browser name
-  console.log("OS name:", getOSName());
-  console.log("Browser name:", getBrowserName());
-  console.log("Screen width:", getScreenWidth());
-  console.log("Screen height:", getScreenHeight());
+  if (document.querySelector('input[name="browser"]').checked) {
+    console.log("Browser name:", getBrowserName());
+  }
+  if (document.querySelector('input[name="os"]').checked) {
+    console.log("OS name:", getOSName());
+  }
+  if (document.querySelector('input[name="sWidth"]').checked) {
+    console.log("Screen width:", getScreenWidth());
+  }
+  if (document.querySelector('input[name="sHeight"]').checked) {
+    console.log("Screen height:", getScreenHeight());
+  }
 
   // Close the modal
   modal.close();
-});
-
-document.querySelector("#settings").addEventListener("click", function () {
-  // Close the first modal
-  modal.close();
-  // Show the second modal
-  secondModal.showModal();
 });
 
 document.querySelector(".save").addEventListener("click", function () {
@@ -72,54 +121,22 @@ document.querySelector(".save").addEventListener("click", function () {
   }
 
   // Display OS and browser name
-  console.log("OS name:", getOSName());
-  console.log("Browser name:", getBrowserName());
-  console.log("Screen width:", getScreenWidth());
-  console.log("Screen height:", getScreenHeight());
+  if (browser) {
+    console.log("Browser name:", getBrowserName());
+  }
+  if (os) {
+    console.log("OS name:", getOSName());
+  }
+  if (sWidth) {
+    console.log("Screen width:", getScreenWidth());
+  }
+  if (sHeight) {
+    console.log("Screen height:", getScreenHeight());
+  }
 
   // Close the second modal
   secondModal.close();
 });
-
-// Function to set a cookie
-function setCookie(name, value, seconds) {
-  let expires = "";
-  if (seconds) {
-    const date = new Date();
-    date.setTime(date.getTime() + seconds * 1000);
-    expires = "; expires=" + date.toUTCString();
-  }
-  document.cookie =
-    name + "=" + encodeURIComponent(value) + expires + "; path=/";
-}
-
-// Function to get a cookie
-function getCookie(name) {
-  const nameEQ = name + "=";
-  const ca = document.cookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == " ") {
-      c = c.substring(1, c.length);
-    }
-    if (c.indexOf(nameEQ) == 0) {
-      return decodeURIComponent(c.substring(nameEQ.length, c.length));
-    }
-  }
-  return null;
-}
-
-// Function to delete a cookie
-function deleteCookie(name) {
-  document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-}
-
-// Function to check if a cookie exists
-function checkCookie(name) {
-  return document.cookie
-    .split(";")
-    .some((item) => item.trim().startsWith(name + "="));
-}
 
 // Function to get the browser name
 function getBrowserName() {
